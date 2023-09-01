@@ -4,6 +4,15 @@ $formatoDia = date("l F o"); // dia mes año
 $formatoHora =date("G:i"); // hora(pm):minutos;
 */
 
+$palabras = ["Mesa", "Silla", "Record", "Gol", "Caducifolio", "Adenocromo", "desoxirribonucleico", "ribosomatico", "asintomatico", "instancia"];
+
+// Inicializamos las variables del juego;
+$palabraElegida = $palabras[ rand(0, 9) ];
+$palabraElegida = strtolower($palabraElegida);
+$cantidadLetras = strlen($palabraElegida);
+$letrasADescubrir = str_pad("", $cantidadLetras, "_");
+$intentos = 0;
+
 // limpiar CLI pantalla
 function clear(){
     // version de PHP === 'windows'
@@ -26,22 +35,26 @@ function str_contains($palabraElegida, $letraJugador)
    return false;
 }
 
-$palabras = ["Mesa", "Silla", "Record", "Gol", "Caducifolio", "Adenocromo", "desoxirribonucleico", "ribosomatico", "asintomatico", "instancia"];
-
 // intnento maximos;
 define("MAX_ATTEMPTS", 6);
 echo "------ 🍪Juego inicializado🍪 ------.\n\n";
 
-// Inicializamos las variables del juego;
-$palabraElegida = $palabras[ rand(0, 9) ];
-$palabraElegida = strtolower($palabraElegida);
-$cantidadLetras = strlen($palabraElegida);
-$letrasADescubrir = str_pad("", $cantidadLetras, "_");
-$intentos = 0;
-
 do {
-    echo "Palabra de $cantidadLetras letras.\n";
+    echo "\nPalabra de $cantidadLetras letras.\n";
     echo $letrasADescubrir . "\n";
+
+    if($intentos === 0){
+        echo "Este es tu personaje. Se llama Jimmy, cuidalo.\n";
+        echo"
+            +---+
+            |   |
+                |
+                |
+                |
+                |
+            =========
+            \n";
+    }
 
     // Pedimos que escriba;
     $letraJugador = readline("Decime una letra: ");
@@ -57,13 +70,75 @@ do {
             $offset = $posicionLetra + 1;
         }
     }else{
-        clear();
+        // clear();
         $intentos++;
         echo "Letra incorrecta, te quedan ". (MAX_ATTEMPTS - $intentos) . " intentos. 🤪🤪🤪";
-        
+           if($intentos === 1) {
+            echo"
+            +---+
+            |   |
+            O   |
+                |
+                |
+                |
+            =========
+            ";
+           }else if($intentos === 2){
+            echo"
+            +---+
+            |   |
+            O   |
+            |   |
+                |
+                |
+            =========
+            ";
+           }else if($intentos === 3){
+            echo"
+            +---+
+            |   |
+            O   |
+           /|   |
+                |
+                |
+            =========
+            ";
+           }else if($intentos === 4){
+            echo"
+            +---+
+            |   |
+            O   |
+           /|\  |
+                |
+                |
+            =========
+            ";
+           }else if($intentos === 5){
+            echo"
+            +---+
+            |   |
+            O   |
+           /|\  |
+           /    |
+                |
+            =========
+            ";
+           }else if($intentos === 6){
+            echo"
+            Me mataste we
+            +---+
+            |   |
+            O   |
+           /|\  |
+           / \  |
+                |
+            =========
+            ";
+           }
     }
     sleep(1);
-    clear();
+    // clear();
+    // muñeco();
 } while( $intentos < MAX_ATTEMPTS && $letrasADescubrir != $palabraElegida );
 
 clear();
@@ -73,9 +148,8 @@ if($intentos < MAX_ATTEMPTS){
 }else{
     echo "Perdiste..."; 
 }
+
 echo "\n";
 echo "La palabra es $palabraElegida \n";
 echo "Descubriste $letrasADescubrir \n";
-
 echo "\n";
-
