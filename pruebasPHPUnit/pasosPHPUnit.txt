@@ -1,0 +1,15 @@
+
+composer init
+composer require --dev phpunit/phpunit;
+phpunit.xml;
+caso de que no detecte en composer.json App {
+    "require": {
+        "psr-4": {
+            "App\\: "src/"
+        }
+    },
+};
+crear carpetas src, pruebas;
+main file con Test incluido en name;
+--- crear pruebas ---
+php vendor/phpunit/phpunit/phpunit
