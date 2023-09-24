@@ -1,0 +1,19 @@
+{
+    "name": "user/dd",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "User\\Dd\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "diego"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/var-dumper": "7.0.x-dev"
+    }
+}
