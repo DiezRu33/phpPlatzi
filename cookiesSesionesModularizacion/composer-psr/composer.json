@@ -1,0 +1,21 @@
+{
+    "name": "user/composer-psr",
+    "description": "ejemplo psr4",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "diego"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "app/Logic/CrearMichis.php"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}

@@ -1,0 +1,18 @@
+{
+    "name": "user/traits",
+    "description": "ejemplo de traits",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "diego"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
