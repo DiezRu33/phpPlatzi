@@ -1,0 +1,23 @@
+php artisan migrate
+php artisan make:migration create_posts_table
+php artisan migrate:refresh --seed
+
+
+Crear usuarios
+php artisan make:model Post -fc
+- en archivo PostFactory.php de database/factories modificar
+- funcion definition(): 
+- returnar la fake->sentence(),
+- se puede guardar en una variable $title para despues retornar en $slug un string mas friendly con Str::slug($title)
+
+en DatabaseSeeder.php de /seeders se crean las instancias para nuevos datos con App\Models\User o Post::factory()->create();
+** se puede aclarar la cantidad dentro del metodo factory();
+
+
+composer require laravel/breeze --dev
+inicio de sesion component
+
+// Comandos de ruta
+php artisan route:cache
+php artisan route:list
+
